@@ -1,4 +1,4 @@
-# Use Node.js base image
+# Use official Node.js image
 FROM node:18
 
 # Set working directory inside container
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Copy the entire project (including src/public)
+# Copy source code (including src and public)
 COPY . .
 
 # Expose port
