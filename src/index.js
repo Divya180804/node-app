@@ -4,18 +4,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files from /src/public
-const publicPath = path.join(__dirname, 'public');
-app.use(express.static(publicPath));
-console.log("📁 Serving static files from:", publicPath);
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Route for /status
+// Default route for /status
 app.get('/status', (req, res) => {
   res.json({ status: 'Application is running successfully!' });
 });
 
-// Route for root /
+// Serve index.html for root route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start server
