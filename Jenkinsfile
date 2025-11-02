@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Cloning repository...'
-                git 'https://github.com/Divya180804/node-app.git'
+                git branch: 'main', url:  'https://github.com/Divya180804/node-app.git'
             }
         }
 
